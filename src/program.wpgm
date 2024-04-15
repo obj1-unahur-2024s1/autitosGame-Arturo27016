@@ -1,7 +1,7 @@
 import wollok.game.*
 import auto.*
 
-program miPrimerWolloGame {
+program miPrimerWollokGame {
 	// límites del tablero de juego
 	game.width(14)
 	game.height(8)
@@ -10,13 +10,25 @@ program miPrimerWolloGame {
 	game.boardGround("empedrado.jpg")
 	
 	// agregamos a nuestro objeto auto
-	game.addVisual(auto)
+	game.addVisual(autoRojo)
+	game.addVisual(autoVerde)
+	game.addVisual(autoAzul)
 	
 	// agregar tecla para que se mueva el auto
-	keyboard.right().onPressDo{auto.moverseALaDerecha()}
-	keyboard.left().onPressDo{auto.moverseALaIzquierda()}
-	keyboard.up().onPressDo{auto.moverseArriba()}
-	keyboard.down().onPressDo{auto.moverseAbajo()}
+	keyboard.right().onPressDo{autoRojo.moverseALaDerecha()}
+	keyboard.left().onPressDo{autoRojo.moverseALaIzquierda()}
+	keyboard.up().onPressDo{autoRojo.moverseArriba()}
+	keyboard.down().onPressDo{autoRojo.moverseAbajo()}
+	
+	keyboard.d().onPressDo{autoVerde.moverseALaDerecha()}
+	keyboard.a().onPressDo{autoVerde.moverseALaIzquierda()}
+	keyboard.w().onPressDo{autoVerde.moverseArriba()}
+	keyboard.s().onPressDo{autoVerde.moverseAbajo()}
+	
+	keyboard.num6().onPressDo{autoAzul.moverseALaDerecha()}
+	keyboard.num4().onPressDo{autoAzul.moverseALaIzquierda()}
+	keyboard.num8().onPressDo{autoAzul.moverseArriba()}
+	keyboard.num5().onPressDo{autoAzul.moverseAbajo()}
 
 	// que arranque el juego!
 	game.start()
